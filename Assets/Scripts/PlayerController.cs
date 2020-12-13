@@ -6,18 +6,19 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using Debug = UnityEngine.Debug;
+using UnityEngine.Animations;
 
 public class PlayerController : MonoBehaviour
 {
-
-    public float speed = 0;
+    public Animator anim;
+    public float speed = 1f;
     public TextMeshProUGUI countText;
     
     public GameObject winTextObject;
     
     
     //Rigidbody variable privat (isolated)
-    private Rigidbody rb;
+    private Rigidbody rb = null;
     
     //counter of natural numbers
     private int count;
@@ -54,21 +55,22 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
+        countText.text = "Count: " + count.ToString() + " / 13"  ;
         
-        //if counter number higher than 11 - show Text "You Win!"
+        //if counter number higher than 12 - show Text "You Win!"
         if (count >= 13)
         {
             winTextObject.SetActive(true);
         }
     }
+
+    
     
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         rb.AddForce(movement * speed);
     }
-
     private void OnTriggerEnter(Collider other)
     {
         
@@ -80,12 +82,19 @@ public class PlayerController : MonoBehaviour
             count = count + 1;
             
             SetCountText();
+
+            if (count >= 3)
+            {
+               
+                anim.Play("Door");
+                //Animation.Play("Door");
+            }
         }
         else if (other.gameObject.CompareTag("Enemy"))
         {
             // works only in Unity Development Environment
             Debug.Log( message: "GAME OVER!");
-            
+            //yield return new WaitForSeconds(5);
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.ExitPlaymode();
 #endif
