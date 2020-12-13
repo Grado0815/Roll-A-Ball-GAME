@@ -9,7 +9,13 @@ public class GameManager : MonoBehaviour
 
     public void EnterLevel()
     {
-        SceneManager.LoadScene("Scenes/Menu");
+        SceneManager.LoadScene("Roll-A-Ball");
+    }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
     public void ExitGame()
