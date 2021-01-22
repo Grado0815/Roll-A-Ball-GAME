@@ -16022,7 +16022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345b505632200473da9d9551ad3460fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
   speed: 8
   countText: {fileID: 92526020}
   winTextObject: {fileID: 1307138137}
@@ -80659,6 +80658,7 @@ GameObject:
   - component: {fileID: 2011563081}
   - component: {fileID: 2011563080}
   - component: {fileID: 2011563083}
+  - component: {fileID: 2011563085}
   - component: {fileID: 2011563084}
   m_Layer: 0
   m_Name: Main Camera
@@ -80776,6 +80776,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 279971887}
+  offset: {x: 0, y: 0, z: 0}
+--- !u!114 &2011563085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011563079}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1d6b6ea6f084c90b938abc6db3fca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2017246415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90686,6 +90699,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickup (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5085395846073376725, guid: 070620a7051214d3789279e689b7b55b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 821cb5ffd29834b058fba49e6851a1f7, type: 2}
     - target: {fileID: 5085395846073376727, guid: 070620a7051214d3789279e689b7b55b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -10,7 +10,7 @@ using UnityEngine.Animations;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator anim;
+    //public Animator anim;
     public float speed = 1f;
     public TextMeshProUGUI countText;
     
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
             if (count >= 3)
             {
                
-                anim.Play("Door");
+                //anim.Play("Door");
                 //Animation.Play("Door");
             }
         }

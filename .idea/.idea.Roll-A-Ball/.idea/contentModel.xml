@@ -30,8 +30,10 @@
           <e p="CameraController.cs" t="Include" />
           <e p="Door.cs" t="Include" />
           <e p="EnemyController.cs" t="Include" />
+          <e p="FollowPlayer.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
+          <e p="MoveScene.cs" t="Include" />
           <e p="PatrollingEnemyController.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="Playtimer.cs" t="Include" />
