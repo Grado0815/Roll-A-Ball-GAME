@@ -10,7 +10,7 @@ using UnityEngine.Animations;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator anim;
+    //public Animator anim;
     public float speed = 1f;
     public TextMeshProUGUI countText;
     
@@ -58,9 +58,11 @@ public class PlayerController : MonoBehaviour
         countText.text = "Count: " + count.ToString() + " / 13"  ;
         
         //if counter number higher than 12 - show Text "You Win!"
-        if (count >= 13)
+        if (count >= 3) // CHANGE THIS TO 13 AGAIN
         {
             winTextObject.SetActive(true);
+            StartCoroutine(waitALittleBit());
+            // After 5 seconds: Start next level or go back to main menu
         }
     }
 
@@ -83,17 +85,19 @@ public class PlayerController : MonoBehaviour
             
             SetCountText();
 
-            if (count >= 3)
+            /*if (count >= 3)
             {
                
-                anim.Play("Door");
-                //Animation.Play("Door");
-            }
+              anim.Play("Door");
+              Animation.Play("Door");
+            }*/
         }
         else if (other.gameObject.CompareTag("Enemy"))
         {
             // works only in Unity Development Environment
             Debug.Log( message: "GAME OVER!");
+            
+            
             //yield return new WaitForSeconds(5);
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.ExitPlaymode();
@@ -103,6 +107,14 @@ public class PlayerController : MonoBehaviour
         }
         
     
+    }
+    
+    public IEnumerator waitALittleBit()
+    {
+        yield return new WaitForSeconds(5); //CHANGE THIS LATER TO NEXT LEVEL OR QUIT SCREEN
+#if UNITY_EDITOR //the following code is only included in the unity editor
+        UnityEditor.EditorApplication.ExitPlaymode();//exits the playmode
+#endif
     }
     
     
